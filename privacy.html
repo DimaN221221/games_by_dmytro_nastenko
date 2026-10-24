@@ -3,37 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy — Dmytro Nastenko</title>
-  <meta name="description" content="Privacy policy for the games Robot Mil and Bullet Vendetta and for this website.">
+  <title data-i18n="meta.privacyTitle">Privacy Policy — Dmytro Nastenko</title>
+  <meta name="description" data-i18n-attr="content:meta.privacyDescription" content="Privacy policy for the games Robot Mil and Bullet Vendetta and for this website.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
   <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="assets/css/site.css?v=962fd766">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css?v=5b7ae11e">
+  <script>
+    document.documentElement.classList.add("js");
+    (function () {
+      var lang = null;
+      try { lang = localStorage.getItem("lang"); } catch (e) {}
+      if (lang !== "uk" && lang !== "en") {
+        var prefs = navigator.languages || [navigator.language || ""];
+        lang = prefs.some(function (l) { return /^uk\b/i.test(l); }) ? "uk" : "en";
+      }
+      document.documentElement.lang = lang;
+      if (lang !== "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () { document.documentElement.classList.remove("i18n-pending"); }, 1500);
+      }
+    })();
+  </script>
+  <script src="assets/js/i18n.js?v=6ed2dbba" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top top--static">
     <div class="wrap">
-      <a class="wordmark" href="./" aria-label="Dmytro Nastenko, home">
+      <a class="wordmark" href="./" data-i18n-attr="aria-label:nav.home" aria-label="Dmytro Nastenko, home">
         <img src="assets/img/logo.webp" width="36" height="36" alt="">
-        <span>Dmytro Nastenko</span>
+        <span data-i18n="name">Dmytro Nastenko</span>
       </a>
-      <nav aria-label="Main">
-        <ul class="nav">
-          <li><a href="./#robot-mil">Games</a></li>
-          <li><a href="./#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="top__right">
+        <nav data-i18n-attr="aria-label:nav.label" aria-label="Main">
+          <ul class="nav">
+            <li><a href="./#robot-mil" data-i18n="nav.games">Games</a></li>
+            <li><a href="./#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <button type="button" data-lang="uk" lang="uk" aria-pressed="false">UA</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="main" class="legal">
-    <div class="wrap">
+    <!-- English -->
+    <article class="wrap" data-lang-block="en" lang="en">
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: October 24, 2026</p>
 
@@ -82,6 +106,7 @@
         <li>It is hosted on <strong>GitHub Pages</strong>. GitHub may log your IP address when you visit, for security and to deliver the site. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</li>
         <li>Fonts are loaded from <strong>Google Fonts</strong>, so your browser sends a request with your IP address to Google. See the <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
         <li>Game trailers are embedded from <strong>YouTube</strong> in privacy-enhanced mode (youtube-nocookie.com). Nothing is loaded from YouTube until you press “Watch the trailer”; after that, YouTube (Google) may process your IP address and store data in your browser to play the video. See the <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
+        <li>If you switch the site language, your choice is remembered in your browser's local storage. It never leaves your device.</li>
         <li>Links to Steam, YouTube, TikTok and Telegram take you to those services, where their own policies apply.</li>
       </ul>
 
@@ -102,13 +127,86 @@
       <h2 id="changes">8. Changes and contact</h2>
       <p>If this policy changes, the new version will be published on this page with a new date.</p>
       <p>Questions: <a href="mailto:robotmilgame@gmail.com">robotmilgame@gmail.com</a></p>
-    </div>
+    </article>
+
+    <!-- Українська -->
+    <article class="wrap" data-lang-block="uk" lang="uk">
+      <h1>Політика конфіденційності</h1>
+      <p class="updated">Оновлено: 24 жовтня 2026 року</p>
+
+      <p>Ця політика пояснює, які дані задіяні, коли ви граєте в <strong>Robot Mil</strong> чи <strong>Bullet Vendetta</strong> (зокрема в її демоверсію) і коли відвідуєте цей сайт. Усе це створює Дмитро Настенко, незалежний розробник («я»).</p>
+      <p>Коротко: я не маю власних серверів, не збираю аналітику і не продаю та не передаю ваші дані. Ваш прогрес зберігається на вашому комп'ютері. Магазини, через які ви граєте (Steam, Epic Games Store), обробляють ваш акаунт, досягнення та подібні функції згідно з власними політиками конфіденційності.</p>
+
+      <nav aria-label="На цій сторінці">
+        <ul class="toc">
+          <li><a href="#games-uk">1. Дані в іграх</a></li>
+          <li><a href="#stores-uk">2. Steam та Epic Games Store</a></li>
+          <li><a href="#engine-uk">3. Рушій Unity</a></li>
+          <li><a href="#website-uk">4. Цей сайт</a></li>
+          <li><a href="#contact-me-uk">5. Листи, які ви мені надсилаєте</a></li>
+          <li><a href="#rights-uk">6. Ваш вибір і права</a></li>
+          <li><a href="#children-uk">7. Діти</a></li>
+          <li><a href="#changes-uk">8. Зміни та контакти</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="games-uk">1. Дані в іграх</h2>
+      <p>Ігри зберігають ваш прогрес, налаштування, найкращий час, лічильники смертей і відкриті досягнення в локальних файлах на вашому комп'ютері. У Windows вони лежать у <code>%USERPROFILE%\AppData\LocalLow\Dmytro Nastenko\</code>. Ігри нікуди не надсилають ці файли.</p>
+      <p>Рівні, які ви створюєте в редакторі рівнів Robot Mil, також зберігаються локально, доки ви самі не вирішите їх опублікувати.</p>
+      <p>В іграх немає реклами і немає власного коду аналітики чи стеження.</p>
+
+      <h2 id="stores-uk">2. Steam та Epic Games Store</h2>
+
+      <h3>Steam</h3>
+      <p>Версії для Steam використовують Steamworks від Valve Corporation для:</p>
+      <ul>
+        <li><strong>Досягнень</strong> — відкриті досягнення записуються у ваш акаунт Steam.</li>
+        <li><strong>Rich Presence</strong> — ваші друзі в Steam бачать, що ви робите в грі (наприклад, на якому ви рівні).</li>
+        <li><strong>Steam Workshop</strong> (Robot Mil) — коли ви публікуєте рівень, він завантажується в Workshop разом з іменем вашого профілю Steam, і інші гравці можуть його бачити та завантажувати. Ви можете будь-коли прибрати свої рівні з Workshop.</li>
+      </ul>
+      <p>Valve обробляє ці дані згідно з <a href="https://store.steampowered.com/privacy_agreement/" rel="noopener">Політикою конфіденційності Steam</a>. Як розробник я бачу лише узагальнені звіти, які надає Valve (наприклад, продажі та відсотки отримання досягнень), а не ваші персональні дані.</p>
+
+      <h3>Epic Games Store</h3>
+      <p>Версія Robot Mil для Epic Games Store використовує Epic Online Services та Epic Account Services. Коли ви запускаєте гру з Epic Games Launcher, вона входить у ваш акаунт Epic. За вашою згодою гра отримує ваш <strong>ID акаунта Epic</strong> та <strong>відображуване ім'я</strong> (базовий профіль), а Epic створює для вас окремий ідентифікатор користувача гри. Це використовується лише для запису й показу ваших досягнень, зокрема в оверлеї Epic.</p>
+      <p>Epic обробляє ці дані згідно з <a href="https://www.epicgames.com/site/privacypolicy" rel="noopener">Політикою конфіденційності Epic Games</a>. Я ніде не зберігаю дані вашого акаунта Epic поза сервісами Epic.</p>
+
+      <h2 id="engine-uk">3. Рушій Unity</h2>
+      <p>Ігри створені на Unity. Рушій може надсилати Unity Technologies анонімну технічну інформацію про ваш пристрій (наприклад, операційну систему, процесор, відеокарту та обсяг пам'яті). Вона не містить вашого імені чи даних акаунта. Докладніше — у <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Політиці конфіденційності Unity для гравців</a>.</p>
+
+      <h2 id="website-uk">4. Цей сайт</h2>
+      <p>Це статичний сайт. Він не встановлює власних cookie, не використовує аналітику і не має форм.</p>
+      <ul>
+        <li>Сайт розміщено на <strong>GitHub Pages</strong>. GitHub може записувати вашу IP-адресу під час відвідування — для безпеки та доставки сайту. Див. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Заяву про конфіденційність GitHub</a>.</li>
+        <li>Шрифти завантажуються з <strong>Google Fonts</strong>, тож ваш браузер надсилає Google запит із вашою IP-адресою. Див. <a href="https://policies.google.com/privacy" rel="noopener">Політику конфіденційності Google</a>.</li>
+        <li>Трейлери ігор вбудовано з <strong>YouTube</strong> у режимі підвищеної конфіденційності (youtube-nocookie.com). З YouTube нічого не завантажується, доки ви не натиснете «Дивитися трейлер»; після цього YouTube (Google) може обробляти вашу IP-адресу та зберігати дані у вашому браузері для відтворення відео. Див. <a href="https://policies.google.com/privacy" rel="noopener">Політику конфіденційності Google</a>.</li>
+        <li>Якщо ви перемикаєте мову сайту, ваш вибір запам'ятовується в локальному сховищі браузера. Він нікуди не передається.</li>
+        <li>Посилання на Steam, YouTube, TikTok і Telegram ведуть на ці сервіси, де діють їхні власні політики.</li>
+      </ul>
+
+      <h2 id="contact-me-uk">5. Листи, які ви мені надсилаєте</h2>
+      <p>Якщо ви мені пишете, я отримую вашу адресу електронної пошти та все, що ви вкажете в листі. Я використовую це лише для відповіді вам і зберігаю лише стільки, скільки потрібно для цього листування.</p>
+
+      <h2 id="rights-uk">6. Ваш вибір і права</h2>
+      <ul>
+        <li><strong>Локальні дані:</strong> щоб стерти збереження, видаліть теку, вказану в розділі 1, або видаліть гру.</li>
+        <li><strong>Дані магазинів:</strong> досягнення, предмети Workshop і дані акаунта керуються в налаштуваннях вашого акаунта Steam чи Epic. Запити на доступ до них чи їх видалення обробляють ці компанії.</li>
+        <li><strong>Вхід через Epic:</strong> ви можете відкликати доступ гри у своєму акаунті Epic у розділі «Програми та облікові записи» (Apps and Accounts).</li>
+        <li>Залежно від того, де ви живете (наприклад, згідно з GDPR), ви можете мати право на доступ до своїх персональних даних, їх виправлення чи видалення. Оскільки я сам не зберігаю даних гравців, більшість таких запитів стосуються Valve чи Epic, але ви завжди можете звернутися до мене, і я допоможу.</li>
+      </ul>
+
+      <h2 id="children-uk">7. Діти</h2>
+      <p>Я свідомо не збираю персональних даних ні від кого, зокрема від дітей. Акаунтами в магазинах і віковими правилами для них опікуються Steam та Epic Games Store.</p>
+
+      <h2 id="changes-uk">8. Зміни та контакти</h2>
+      <p>Якщо ця політика зміниться, нову версію буде опубліковано на цій сторінці з новою датою.</p>
+      <p>Питання: <a href="mailto:robotmilgame@gmail.com">robotmilgame@gmail.com</a></p>
+    </article>
   </main>
 
   <footer class="foot">
     <div class="wrap">
-      <span>© 2026 Dmytro Nastenko</span>
-      <a href="./">Back to games</a>
+      <span>© 2026 <span data-i18n="name">Dmytro Nastenko</span></span>
+      <a href="./" data-i18n="foot.back">Back to games</a>
     </div>
   </footer>
 </body>

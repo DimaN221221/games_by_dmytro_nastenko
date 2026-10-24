@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dmytro Nastenko — Games</title>
-  <meta name="description" content="Games by Dmytro Nastenko, a solo developer: Robot Mil, a hardcore precision platformer, and Bullet Vendetta, a top-down shooter.">
+  <title data-i18n="meta.title">Dmytro Nastenko — Games</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Games by Dmytro Nastenko, a solo developer: Robot Mil, a hardcore precision platformer, and Bullet Vendetta, a top-down shooter.">
   <meta name="theme-color" content="#000000">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Dmytro Nastenko — Games">
@@ -15,28 +15,50 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="assets/css/site.css?v=962fd766">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css?v=5b7ae11e">
   <link rel="preload" as="image" href="assets/intro/000.webp">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.add("js");
+    (function () {
+      var lang = null;
+      try { lang = localStorage.getItem("lang"); } catch (e) {}
+      if (lang !== "uk" && lang !== "en") {
+        var prefs = navigator.languages || [navigator.language || ""];
+        lang = prefs.some(function (l) { return /^uk\b/i.test(l); }) ? "uk" : "en";
+      }
+      document.documentElement.lang = lang;
+      if (lang !== "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () { document.documentElement.classList.remove("i18n-pending"); }, 1500);
+      }
+    })();
+  </script>
+  <script src="assets/js/i18n.js?v=6ed2dbba" defer></script>
   <script src="assets/js/intro.js?v=69bf8e77" defer></script>
   <script src="assets/js/media.js?v=80236503" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top">
     <div class="wrap">
-      <a class="wordmark" href="./" aria-label="Dmytro Nastenko, home">
+      <a class="wordmark" href="./" data-i18n-attr="aria-label:nav.home" aria-label="Dmytro Nastenko, home">
         <img src="assets/img/logo.webp" width="36" height="36" alt="">
-        <span>Dmytro Nastenko</span>
+        <span data-i18n="name">Dmytro Nastenko</span>
       </a>
-      <nav aria-label="Main">
-        <ul class="nav">
-          <li><a href="#robot-mil">Games</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="top__right">
+        <nav data-i18n-attr="aria-label:nav.label" aria-label="Main">
+          <ul class="nav">
+            <li><a href="#robot-mil" data-i18n="nav.games">Games</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <button type="button" data-lang="uk" lang="uk" aria-pressed="false">UA</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -48,22 +70,22 @@
         <div class="intro__copy">
           <div class="wrap">
             <div class="intro__name">
-              <p class="eyebrow">Solo game developer · Unity · PC</p>
-              <h1 id="intro-title">Dmytro Nastenko</h1>
+              <p class="eyebrow" data-i18n="intro.eyebrow">Solo game developer · Unity · PC</p>
+              <h1 id="intro-title" data-i18n="name">Dmytro Nastenko</h1>
             </div>
             <div class="intro__more">
-              <p>I make small 2D games that ask a lot of your reflexes. Two so far: a hardcore platformer about a little robot, and a top-down shooter about a war with the mafia.</p>
+              <p data-i18n="intro.text">I make small 2D games that ask a lot of your reflexes. Two so far: a hardcore platformer about a little robot, and a top-down shooter about a war with the mafia.</p>
               <ul class="games-index">
                 <li>
                   <a href="#robot-mil">
                     <strong>Robot Mil</strong>
-                    <small>Precision platformer · Out now</small>
+                    <small data-i18n="intro.rm">Precision platformer · Out now</small>
                   </a>
                 </li>
                 <li>
                   <a href="#bullet-vendetta">
                     <strong>Bullet Vendetta</strong>
-                    <small>Top-down shooter · Demo</small>
+                    <small data-i18n="intro.bv">Top-down shooter · Demo</small>
                   </a>
                 </li>
               </ul>
@@ -71,7 +93,7 @@
           </div>
         </div>
 
-        <div class="scroll-cue no-js-hide" aria-hidden="true">Scroll<span></span></div>
+        <div class="scroll-cue no-js-hide" aria-hidden="true"><b data-i18n="intro.scroll">Scroll</b><span></span></div>
       </div>
     </section>
 
@@ -81,52 +103,53 @@
           <div class="game__media">
             <div class="trailer" data-youtube="KfC5xbYtUMk" data-title="Robot Mil v2.0 — Gameplay Trailer">
               <img src="assets/img/robotmil-key.webp" width="1600" height="900"
+                   data-i18n-attr="alt:rm.keyAlt"
                    alt="Robot Mil key art: the small robot Mil next to a spinning saw blade above a row of spikes, with the game logo on the right">
               <a class="trailer__play" href="https://www.youtube.com/watch?v=KfC5xbYtUMk" rel="noopener">
                 <span class="trailer__pill">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg>
-                  Watch the trailer
+                  <span data-i18n="trailer.watch">Watch the trailer</span>
                 </span>
               </a>
             </div>
-            <p class="trailer__note">The video loads from YouTube when you press play.</p>
+            <p class="trailer__note" data-i18n="trailer.note">The video loads from YouTube when you press play.</p>
           </div>
 
           <div class="game__info">
-            <p class="tag">Precision platformer</p>
+            <p class="tag" data-i18n="rm.tag">Precision platformer</p>
             <h2 id="rm-title">Robot Mil</h2>
-            <p class="game__lede">A hardcore platformer where you guide Mil, a little robot, through level after level of saws, lasers and spikes. Every chapter has its own location and its own traps. It's time to test your nerves.</p>
+            <p class="game__lede" data-i18n="rm.lede">A hardcore platformer where you guide Mil, a little robot, through level after level of saws, lasers and spikes. Every chapter has its own location and its own traps. It's time to test your nerves.</p>
 
             <dl class="facts">
-              <dt>Released</dt><dd>October 10, 2025</dd>
-              <dt>Platform</dt><dd>Windows</dd>
-              <dt>Languages</dt><dd>English, Ukrainian, German, French, Italian, Polish, Japanese, Chinese (Simplified &amp; Traditional)</dd>
+              <dt data-i18n="facts.released">Released</dt><dd data-i18n="rm.date">October 10, 2025</dd>
+              <dt data-i18n="facts.platform">Platform</dt><dd>Windows</dd>
+              <dt data-i18n="facts.languages">Languages</dt><dd data-i18n="rm.languages">English, Ukrainian, German, French, Italian, Polish, Japanese, Chinese (Simplified &amp; Traditional)</dd>
             </dl>
 
             <div class="actions">
               <a class="btn" href="https://store.steampowered.com/app/4053720/Robot_Mil/" rel="noopener">
-                View on Steam
+                <span data-i18n="rm.steam">View on Steam</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
               </a>
             </div>
-            <p class="note">Coming to the Epic Games Store.</p>
+            <p class="note" data-i18n="rm.epic">Coming to the Epic Games Store.</p>
           </div>
         </div>
 
         <ul class="features">
-          <li><h3>4 chapters, 56 levels</h3><p>14 levels per chapter, each chapter with its own setting and obstacles.</p></li>
-          <li><h3>Normal and Hard mode</h3><p>Same locations, more obstacles and far less room for error.</p></li>
-          <li><h3>Secret chapter</h3><p>Collect the puzzles hidden in levels to unlock “Another Way”.</p></li>
-          <li><h3>Challenges</h3><p>A whole chapter as one long level. No checkpoints.</p></li>
-          <li><h3>Practice mode</h3><p>Drop a checkpoint anywhere and drill the part that keeps beating you.</p></li>
-          <li><h3>Level Maker</h3><p>Build your own levels and share them through Steam Workshop.</p></li>
+          <li><h3 data-i18n="rm.f1.t">4 chapters, 56 levels</h3><p data-i18n="rm.f1.d">14 levels per chapter, each chapter with its own setting and obstacles.</p></li>
+          <li><h3 data-i18n="rm.f2.t">Normal and Hard mode</h3><p data-i18n="rm.f2.d">Same locations, more obstacles and far less room for error.</p></li>
+          <li><h3 data-i18n="rm.f3.t">Secret chapter</h3><p data-i18n="rm.f3.d">Collect the puzzles hidden in levels to unlock “Another Way”.</p></li>
+          <li><h3 data-i18n="rm.f4.t">Challenges</h3><p data-i18n="rm.f4.d">A whole chapter as one long level. No checkpoints.</p></li>
+          <li><h3 data-i18n="rm.f5.t">Practice mode</h3><p data-i18n="rm.f5.d">Drop a checkpoint anywhere and drill the part that keeps beating you.</p></li>
+          <li><h3 data-i18n="rm.f6.t">Level Maker</h3><p data-i18n="rm.f6.d">Build your own levels and share them through Steam Workshop.</p></li>
         </ul>
 
-        <ul class="shots" aria-label="Robot Mil screenshots, open to view full size">
-          <li><a class="shot" href="assets/img/robotmil-shot-1-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-1.webp" width="960" height="535" loading="lazy" alt="Dark industrial level with spiked blocks and hazard-striped platforms"></a></li>
-          <li><a class="shot" href="assets/img/robotmil-shot-2-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-2.webp" width="960" height="536" loading="lazy" alt="Mossy dungeon level lit by lamps, with rows of spikes"></a></li>
-          <li><a class="shot" href="assets/img/robotmil-shot-3-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-3.webp" width="960" height="534" loading="lazy" alt="Red laser chapter with vertical laser beams"></a></li>
-          <li><a class="shot" href="assets/img/robotmil-shot-4-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-4.webp" width="960" height="535" loading="lazy" alt="Red laser chapter with horizontal laser beams"></a></li>
+        <ul class="shots" data-i18n-attr="aria-label:rm.shots" aria-label="Robot Mil screenshots, open to view full size">
+          <li><a class="shot" href="assets/img/robotmil-shot-1-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-1.webp" width="960" height="535" loading="lazy" data-i18n-attr="alt:rm.s1" alt="Dark industrial level with spiked blocks and hazard-striped platforms"></a></li>
+          <li><a class="shot" href="assets/img/robotmil-shot-2-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-2.webp" width="960" height="536" loading="lazy" data-i18n-attr="alt:rm.s2" alt="Mossy dungeon level lit by lamps, with rows of spikes"></a></li>
+          <li><a class="shot" href="assets/img/robotmil-shot-3-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-3.webp" width="960" height="534" loading="lazy" data-i18n-attr="alt:rm.s3" alt="Red laser chapter with vertical laser beams"></a></li>
+          <li><a class="shot" href="assets/img/robotmil-shot-4-full.webp" data-gallery="robot-mil"><img src="assets/img/robotmil-shot-4.webp" width="960" height="535" loading="lazy" data-i18n-attr="alt:rm.s4" alt="Red laser chapter with horizontal laser beams"></a></li>
         </ul>
       </div>
     </section>
@@ -137,64 +160,65 @@
           <div class="game__media">
             <div class="trailer" data-youtube="OBJTGE9Wx0E" data-title="Bullet Vendetta — Trailer">
               <img src="assets/img/bv-key.webp" width="1600" height="900" loading="lazy"
+                   data-i18n-attr="alt:bv.keyAlt"
                    alt="Bullet Vendetta key art: a gunman in an orange shirt fires at mobsters on a blood-stained street, seen from above">
               <a class="trailer__play" href="https://www.youtube.com/watch?v=OBJTGE9Wx0E" rel="noopener">
                 <span class="trailer__pill">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg>
-                  Watch the trailer
+                  <span data-i18n="trailer.watch">Watch the trailer</span>
                 </span>
               </a>
             </div>
-            <p class="trailer__note">The video loads from YouTube when you press play.</p>
+            <p class="trailer__note" data-i18n="trailer.note">The video loads from YouTube when you press play.</p>
           </div>
 
           <div class="game__info">
-            <p class="tag">Top-down shooter</p>
+            <p class="tag" data-i18n="bv.tag">Top-down shooter</p>
             <h2 id="bv-title">Bullet Vendetta</h2>
-            <p class="game__lede">A fast top-down shooter about the fight against the mafia that runs the city. Out of prison and out for revenge, you clear district after district — always outnumbered, never with time to think.</p>
+            <p class="game__lede" data-i18n="bv.lede">A fast top-down shooter about the fight against the mafia that runs the city. Out of prison and out for revenge, you clear district after district — always outnumbered, never with time to think.</p>
 
             <dl class="facts">
-              <dt>Release</dt><dd>To be announced</dd>
-              <dt>Platform</dt><dd>Windows</dd>
-              <dt>Languages</dt><dd>English, Ukrainian</dd>
+              <dt data-i18n="facts.release">Release</dt><dd data-i18n="bv.date">To be announced</dd>
+              <dt data-i18n="facts.platform">Platform</dt><dd>Windows</dd>
+              <dt data-i18n="facts.languages">Languages</dt><dd data-i18n="bv.languages">English, Ukrainian</dd>
             </dl>
 
             <div class="actions">
               <a class="btn" href="https://store.steampowered.com/app/4782900/Bullet_Vendetta/" rel="noopener">
-                Wishlist on Steam
+                <span data-i18n="bv.wishlist">Wishlist on Steam</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
               </a>
               <a class="btn btn--ghost" href="https://store.steampowered.com/app/4947660/Bullet_Vendetta_Demo/" rel="noopener">
-                Play the demo
+                <span data-i18n="bv.demo">Play the demo</span>
               </a>
             </div>
           </div>
         </div>
 
         <ul class="features">
-          <li><h3>Fast shootouts</h3><p>Rooms full of enemies, decided in seconds.</p></li>
-          <li><h3>An arsenal to match</h3><p>A range of firearms for cutting through large groups.</p></li>
-          <li><h3>A revenge story</h3><p>Take back the city one mafia-controlled district at a time.</p></li>
+          <li><h3 data-i18n="bv.f1.t">Fast shootouts</h3><p data-i18n="bv.f1.d">Rooms full of enemies, decided in seconds.</p></li>
+          <li><h3 data-i18n="bv.f2.t">An arsenal to match</h3><p data-i18n="bv.f2.d">A range of firearms for cutting through large groups.</p></li>
+          <li><h3 data-i18n="bv.f3.t">A revenge story</h3><p data-i18n="bv.f3.d">Take back the city one mafia-controlled district at a time.</p></li>
         </ul>
 
-        <ul class="shots" aria-label="Bullet Vendetta screenshots, open to view full size">
-          <li><a class="shot" href="assets/img/bv-shot-1-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-1.webp" width="960" height="540" loading="lazy" alt="Shootout at a railway crossing between freight cars, with a combo counter on screen"></a></li>
-          <li><a class="shot" href="assets/img/bv-shot-2-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-2.webp" width="960" height="540" loading="lazy" alt="Street fight next to a crashed car and a park"></a></li>
-          <li><a class="shot" href="assets/img/bv-shot-3-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-3.webp" width="960" height="540" loading="lazy" alt="Gunfight in a parking lot beside a canal"></a></li>
-          <li><a class="shot" href="assets/img/bv-shot-4-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-4.webp" width="960" height="540" loading="lazy" alt="Warehouse shootout among wooden crates"></a></li>
+        <ul class="shots" data-i18n-attr="aria-label:bv.shots" aria-label="Bullet Vendetta screenshots, open to view full size">
+          <li><a class="shot" href="assets/img/bv-shot-1-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-1.webp" width="960" height="540" loading="lazy" data-i18n-attr="alt:bv.s1" alt="Shootout at a railway crossing between freight cars, with a combo counter on screen"></a></li>
+          <li><a class="shot" href="assets/img/bv-shot-2-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-2.webp" width="960" height="540" loading="lazy" data-i18n-attr="alt:bv.s2" alt="Street fight next to a crashed car and a park"></a></li>
+          <li><a class="shot" href="assets/img/bv-shot-3-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-3.webp" width="960" height="540" loading="lazy" data-i18n-attr="alt:bv.s3" alt="Gunfight in a parking lot beside a canal"></a></li>
+          <li><a class="shot" href="assets/img/bv-shot-4-full.webp" data-gallery="bullet-vendetta"><img src="assets/img/bv-shot-4.webp" width="960" height="540" loading="lazy" data-i18n-attr="alt:bv.s4" alt="Warehouse shootout among wooden crates"></a></li>
         </ul>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <h2 id="contact-title">Contact</h2>
+        <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
         <div class="contact__grid">
           <div>
-            <p>Press, bug reports, keys for content creators — write to:</p>
+            <p data-i18n="contact.text">Press, bug reports, keys for content creators — write to:</p>
             <a class="mail" href="mailto:robotmilgame@gmail.com">robotmilgame@gmail.com</a>
           </div>
-          <ul class="socials" aria-label="Social links">
+          <ul class="socials" data-i18n-attr="aria-label:contact.socials" aria-label="Social links">
             <li>
               <a href="https://www.youtube.com/@Games_by_Dmytro_Nastenko" rel="noopener">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="#ff0033"/><path d="M10 9v6l5.2-3Z" fill="#fff"/></svg>
@@ -221,21 +245,21 @@
 
   <footer class="foot">
     <div class="wrap">
-      <span>© 2026 Dmytro Nastenko</span>
-      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 <span data-i18n="name">Dmytro Nastenko</span></span>
+      <a href="privacy.html" data-i18n="foot.privacy">Privacy Policy</a>
     </div>
   </footer>
-  <dialog class="lightbox" aria-label="Screenshot viewer">
+  <dialog class="lightbox" data-i18n-attr="aria-label:lb.label" aria-label="Screenshot viewer">
     <div class="lightbox__frame">
       <img class="lightbox__img" src="" alt="">
     </div>
-    <button class="lightbox__btn lightbox__close" type="button" aria-label="Close">
+    <button class="lightbox__btn lightbox__close" type="button" data-i18n-attr="aria-label:lb.close" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
-    <button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous screenshot">
+    <button class="lightbox__btn lightbox__prev" type="button" data-i18n-attr="aria-label:lb.prev" aria-label="Previous screenshot">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
     </button>
-    <button class="lightbox__btn lightbox__next" type="button" aria-label="Next screenshot">
+    <button class="lightbox__btn lightbox__next" type="button" data-i18n-attr="aria-label:lb.next" aria-label="Next screenshot">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
     </button>
   </dialog>
