@@ -117,10 +117,11 @@ a {
   text-decoration: none;
 }
 
-.wordmark svg {
-  width: 28px;
-  height: 28px;
+.wordmark img {
+  width: 36px;
+  height: 36px;
   flex: none;
+  border-radius: 7px;
 }
 
 .nav {
