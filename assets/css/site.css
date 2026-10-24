@@ -611,13 +611,14 @@ html:has(.lightbox[open]) {
 }
 
 .lightbox {
-  width: 100vw;
+  width: 100%;
   max-width: none;
   height: 100vh;
   height: 100dvh;
   max-height: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   border: 0;
   background: transparent;
   color: var(--text);
@@ -641,31 +642,24 @@ html:has(.lightbox[open]) {
 }
 
 .lightbox__frame {
+  --pad-y: 64px;
+  --pad-x: clamp(12px, 7vw, 88px);
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
-  padding: 64px clamp(12px, 7vw, 88px);
+  padding: var(--pad-y) var(--pad-x);
 }
 
 .lightbox__img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: calc(100vw - 2 * var(--pad-x));
+  max-height: calc(100vh - 2 * var(--pad-y));
+  max-height: calc(100dvh - 2 * var(--pad-y));
   object-fit: contain;
   border-radius: var(--radius-sm);
   box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.9);
   touch-action: pan-y;
   user-select: none;
-}
-
-.lightbox__count {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  translate: -50% 0;
-  margin: 0;
-  font: 500 0.875rem var(--mono);
-  color: var(--muted);
 }
 
 .lightbox__btn {
@@ -718,7 +712,8 @@ html:has(.lightbox[open]) {
 
 @media (max-width: 640px) {
   .lightbox__frame {
-    padding: 64px 12px 96px;
+    --pad-x: 12px;
+    --pad-y: 88px;
   }
 
   .lightbox__prev,
