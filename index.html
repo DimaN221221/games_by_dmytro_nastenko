@@ -5,26 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dmytro Nastenko — Games</title>
   <meta name="description" content="Games by Dmytro Nastenko, a solo developer: Robot Mil, a hardcore precision platformer, and Bullet Vendetta, a top-down shooter.">
-  <meta name="theme-color" content="#0b0b0f">
+  <meta name="theme-color" content="#000000">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Dmytro Nastenko — Games">
   <meta property="og:description" content="Robot Mil and Bullet Vendetta, made by a solo developer.">
-  <meta property="og:image" content="assets/img/robotmil-key.webp">
+  <meta property="og:image" content="https://games-by-dmytro-nastenko.pp.ua/assets/img/robotmil-key.webp">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="preload" as="image" href="assets/intro/000.webp">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="assets/js/intro.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="top">
     <div class="wrap">
-      <a class="wordmark" href="./">DMYTRO NASTENKO<span> / GAMES</span></a>
+      <a class="wordmark" href="./" aria-label="Dmytro Nastenko, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 2 29 9.5 16 17 3 9.5Z" fill="#2f5ae8"/>
+          <path d="M3 9.5 16 17v14L3 23.5Z" fill="#00307f"/>
+          <path d="M29 9.5 16 17v14l13-7.5Z" fill="#0b45b8"/>
+        </svg>
+        <span>Dmytro Nastenko</span>
+      </a>
       <nav aria-label="Main">
         <ul class="nav">
-          <li><a href="#games">Games</a></li>
+          <li><a href="#robot-mil">Games</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -33,25 +43,36 @@
 
   <main id="main">
     <section class="intro" aria-labelledby="intro-title">
-      <div class="wrap">
-        <p class="eyebrow">Solo developer · Unity · PC</p>
-        <h1 id="intro-title">I make small 2D games that ask a lot of your reflexes.</h1>
-        <p>I'm Dmytro, a solo developer. Two games so far: a hardcore platformer about a little robot, and a top-down shooter about a war with the mafia.</p>
+      <div class="intro__stage">
+        <canvas class="intro__canvas" aria-hidden="true"></canvas>
 
-        <ul class="index" id="games">
-          <li>
-            <a href="#robot-mil">
-              <span class="num">01</span>
-              <span><strong>Robot Mil</strong><small>Precision platformer · Out now</small></span>
-            </a>
-          </li>
-          <li>
-            <a href="#bullet-vendetta">
-              <span class="num">02</span>
-              <span><strong>Bullet Vendetta</strong><small>Top-down shooter · Demo available</small></span>
-            </a>
-          </li>
-        </ul>
+        <div class="intro__copy">
+          <div class="wrap">
+            <div class="intro__name">
+              <p class="eyebrow">Solo game developer · Unity · PC</p>
+              <h1 id="intro-title">Dmytro Nastenko</h1>
+            </div>
+            <div class="intro__more">
+              <p>I make small 2D games that ask a lot of your reflexes. Two so far: a hardcore platformer about a little robot, and a top-down shooter about a war with the mafia.</p>
+              <ul class="games-index">
+                <li>
+                  <a href="#robot-mil">
+                    <strong>Robot Mil</strong>
+                    <small>Precision platformer · Out now</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="#bullet-vendetta">
+                    <strong>Bullet Vendetta</strong>
+                    <small>Top-down shooter · Demo</small>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-cue no-js-hide" aria-hidden="true">Scroll<span></span></div>
       </div>
     </section>
 
@@ -66,7 +87,7 @@
           </div>
 
           <div class="game__info">
-            <p class="tag">01 — Precision platformer</p>
+            <p class="tag">Precision platformer</p>
             <h2 id="rm-title">Robot Mil</h2>
             <p class="game__lede">A hardcore platformer where you guide Mil, a little robot, through level after level of saws, lasers and spikes. Every chapter has its own location and its own traps. It's time to test your nerves.</p>
 
@@ -79,7 +100,7 @@
             <div class="actions">
               <a class="btn" href="https://store.steampowered.com/app/4053720/Robot_Mil/" rel="noopener">
                 View on Steam
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
               </a>
             </div>
             <p class="note">Coming to the Epic Games Store.</p>
@@ -109,13 +130,13 @@
         <div class="game__grid">
           <div class="game__media">
             <figure>
-              <img src="assets/img/bv-key.webp" width="1600" height="900"
+              <img src="assets/img/bv-key.webp" width="1600" height="900" loading="lazy"
                    alt="Bullet Vendetta key art: a gunman in an orange shirt fires at mobsters on a blood-stained street, seen from above">
             </figure>
           </div>
 
           <div class="game__info">
-            <p class="tag">02 — Top-down shooter</p>
+            <p class="tag">Top-down shooter</p>
             <h2 id="bv-title">Bullet Vendetta</h2>
             <p class="game__lede">A fast top-down shooter about the fight against the mafia that runs the city. Out of prison and out for revenge, you clear district after district — always outnumbered, never with time to think.</p>
 
@@ -128,7 +149,7 @@
             <div class="actions">
               <a class="btn" href="https://store.steampowered.com/app/4782900/Bullet_Vendetta/" rel="noopener">
                 Wishlist on Steam
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
               </a>
               <a class="btn btn--ghost" href="https://store.steampowered.com/app/4947660/Bullet_Vendetta_Demo/" rel="noopener">
                 Play the demo
@@ -160,10 +181,25 @@
             <p>Press, bug reports, keys for content creators — write to:</p>
             <a class="mail" href="mailto:robotmilgame@gmail.com">robotmilgame@gmail.com</a>
           </div>
-          <ul class="links" aria-label="Social links">
-            <li><a href="https://www.youtube.com/@RobotMil-game" rel="noopener">YouTube <span>@RobotMil-game</span></a></li>
-            <li><a href="https://www.tiktok.com/@robot_mil" rel="noopener">TikTok <span>@robot_mil</span></a></li>
-            <li><a href="https://t.me/robotmil" rel="noopener">Telegram <span>t.me/robotmil</span></a></li>
+          <ul class="socials" aria-label="Social links">
+            <li>
+              <a href="https://www.youtube.com/@Games_by_Dmytro_Nastenko" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="#ff0033"/><path d="M10 9v6l5.2-3Z" fill="#fff"/></svg>
+                YouTube <span>@Games_by_Dmytro_Nastenko</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@games_by_dmytro_nastenko" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h3.2c.3 2.2 1.7 3.6 3.8 3.8V10c-1.5 0-2.9-.4-3.9-1.1v6.4a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.3a2.6 2.6 0 1 0 1.8 2.4Z" fill="currentColor"/></svg>
+                TikTok <span>@games_by_dmytro_nastenko</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/games_by_dmytro_nastenko" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#29a9eb"/><path d="m6.2 11.7 10.3-4c.5-.2.9.1.8.8l-1.8 8.3c-.1.6-.5.7-1 .4l-2.7-2-1.3 1.3c-.2.2-.3.3-.6.3l.2-2.8 5-4.6c.2-.2 0-.3-.3-.1l-6.2 3.9-2.7-.8c-.6-.2-.6-.6.1-.9Z" fill="#fff"/></svg>
+                Telegram <span>t.me/games_by_dmytro_nastenko</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
