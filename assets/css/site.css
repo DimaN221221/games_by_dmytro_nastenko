@@ -322,9 +322,13 @@ a {
 
 .game__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
+}
+
+.game--bv .game__grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
 }
 
 .game--bv .game__media {
@@ -615,13 +619,13 @@ html:has(.lightbox[open]) {
   margin: 0;
   padding: 0;
   border: 0;
-  background: rgb(0 0 0 / 0.92);
+  background: transparent;
   color: var(--text);
   overscroll-behavior: contain;
 }
 
 .lightbox::backdrop {
-  background: rgb(0 0 0 / 0.6);
+  background: rgb(0 0 0 / 0.88);
 }
 
 .lightbox[open] {
@@ -637,32 +641,21 @@ html:has(.lightbox[open]) {
 }
 
 .lightbox__frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 72px clamp(16px, 8vw, 96px) 64px;
+  padding: 64px clamp(12px, 7vw, 88px);
 }
 
 .lightbox__img {
   max-width: 100%;
-  max-height: calc(100% - 40px);
+  max-height: 100%;
   object-fit: contain;
   border-radius: var(--radius-sm);
   box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.9);
   touch-action: pan-y;
   user-select: none;
-}
-
-.lightbox__caption {
-  max-width: 70ch;
-  font-size: 0.9375rem;
-  text-align: center;
-  color: var(--muted);
 }
 
 .lightbox__count {
@@ -725,8 +718,7 @@ html:has(.lightbox[open]) {
 
 @media (max-width: 640px) {
   .lightbox__frame {
-    padding-inline: 12px;
-    padding-bottom: 96px;
+    padding: 64px 12px 96px;
   }
 
   .lightbox__prev,
@@ -923,6 +915,7 @@ html:has(.lightbox[open]) {
 
 @media (max-width: 900px) {
   .game__grid,
+  .game--bv .game__grid,
   .contact__grid,
   .intro__more {
     grid-template-columns: minmax(0, 1fr);

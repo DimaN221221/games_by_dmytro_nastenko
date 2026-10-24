@@ -27,7 +27,6 @@
   if (!dialog || typeof dialog.showModal !== "function") return;
 
   const img = dialog.querySelector(".lightbox__img");
-  const caption = dialog.querySelector(".lightbox__caption");
   const count = dialog.querySelector(".lightbox__count");
   const prev = dialog.querySelector(".lightbox__prev");
   const next = dialog.querySelector(".lightbox__next");
@@ -47,7 +46,6 @@
     const thumb = link.querySelector("img");
     img.src = link.href;
     img.alt = thumb ? thumb.alt : "";
-    caption.textContent = thumb ? thumb.alt : "";
     count.textContent = `${index + 1} / ${items.length}`;
 
     // Warm up the neighbours so arrows feel instant.
