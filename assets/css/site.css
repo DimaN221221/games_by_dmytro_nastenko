@@ -636,6 +636,10 @@ html[lang="uk"] [data-lang-block="en"] {
   list-style: none;
 }
 
+.shots--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .shots img {
   width: 100%;
   aspect-ratio: 16 / 9;
